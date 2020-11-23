@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Детект поездов</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Главная</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/detector}">Детектор</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/education}">Как пользоваться</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/rest}">REST API</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+    <form th:action="@{/detect}" method="post" enctype="multipart/form-data">
+        <div class="form-group row justify-content-md-center">
+            <div class="col-4">
+                <label for="load">Загрузите файл</label>
+                <input class="form-control" type="file" name="photo" id="load" placeholder="Фото" required><br>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-4">
+                <button type="submit" class="btn btn-primary">Загрузить</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="row justify-content-md-center">
+        <div class="col">
+            <div id="right-img" th:if="${detected}">
+                <div class="row" >
+                    <img class="rounded float-left" th:src="@{${detected}}" style="width:400px;height:400px"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div id="left-img" th:if="${nonDetected}">
+                <div class="row">
+                    <img class="rounded float-right" th:src="@{${storage.getFileUrl(saveBucket, nonDetected)}}" style="width:400px;height:400px"/>
+                </div>
+                <div>
+                    <form th:action="@{/detect}" method="post">
+                        <input hidden type="text" name="urlImgForDetect" th:value="@{${storage.getFileUrl(saveBucket, nonDetected)}}"><br>
+                        <button id="btn-left" type="submit" class="btn btn-primary">Задетектить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>

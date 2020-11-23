@@ -1,0 +1,10 @@
+edu\lab\controller\MainController.class
+edu\lab\config\ApplicationConfig.class
+edu\lab\exceptions\storage\NoSuchFileInStorageException.class
+edu\lab\s3\S3Builder.class
+edu\lab\s3\PhotoStorage.class
+edu\lab\DetectorApp.class
+edu\lab\exceptions\storage\StorageException.class
+edu\lab\s3\S3Management.class
+edu\lab\exceptions\AppException.class
+edu\lab\exceptions\storage\CannotDeleteFileException.class
