@@ -28,6 +28,55 @@
         </ul>
     </div>
 </nav>
+<h1>Инструкция по использованию сервиса</h1><br>
+<h2 align="center">Шаг 1</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <p class="lead">Чтобы задетектить объект, для начала <br>
+                придется загрузить его фото с вашего компьютера</p>
+        </div>
+        <div class="col-sm">
+            <img src="../static/images/step-1.jpg" th:src="@{/images/step-1.jpg}">
+        </div>
+        <div class="col-sm">
+            <p class="lead">Выберите файл с расширением "jpg" или подобным. Затем нажмите кнопку "Загрузить"</p>
+        </div>
+    </div>
+</div>
+
+<h2 align="center">Шаг 2</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <p class="lead">Затем у вас на экране появится изображение, которое вы загрузили</p>
+        </div>
+        <div class="col-sm">
+            <img src="../static/images/step-2.jpg" th:src="@{/images/step-2.jpg}">
+        </div>
+        <div class="col-sm">
+            <p class="lead">Чтобы наконец-то распознать объект на изображении - нажмите кнопку "Задетектить"</p>
+        </div>
+    </div>
+</div>
+
+<h2 align="center">Результат</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <p class="lead">И наконец мы получаем долгожданный результат. Если никакого объекта на фото найдено не было, то вы увидите ту же самую картинку, что и отправляли</p>
+        </div>
+        <div class="col-sm">
+            <img src="../static/images/result.jpg" th:src="@{/images/result.jpg}">
+        </div>
+        <div class="col-sm">
+            <p class="lead">В случае успеха будет как тут. Детекция объекта может занимать некоторое время, обычно до 7 секунд.</p>
+        </div>
+    </div>
+</div>
+
+<h3>ВНИМАНИЕ!!! Изображения хранятся 3 часа на сервере, поистечению этого времени вам придется заново загружать их</h3>
+
 <p class="lead">
     <a class="btn btn-primary btn-lg" th:href="@{/detect}" role="button">Теперь точно детектим!</a>
 </p>
